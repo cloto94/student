@@ -5,21 +5,27 @@ import java.util.Scanner;
 
 public class Calender {
 
+	private final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	
+	public int maxDays(int month) {
+		return MAX_DAYS[month - 1];
+	}
+	
+	public void printMsg(int month, int day) {
+		System.out.printf("%d월은 %d일까지 있습니다.", month, day);
+	}
+	
 	public static void main(String[] args) {
 		int month1;
 		
-		Scanner scanner = new Scanner(System.in);
+		Scanner  scanner  = new Scanner(System.in);
+		Calender calendar = new Calender();
+		
 		System.out.println("달을 입력하세요");
-	
-		String sMonth;
 		
 		month1 = scanner.nextInt();
 		
-		int[] day1 = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		
-		
-		System.out.printf("%d월은 %d일까지 있습니다.", month1, day1[month1 - 1]);
-		
+		calendar.printMsg(month1, calendar.maxDays(month1));
 		
 		scanner.close();
 
